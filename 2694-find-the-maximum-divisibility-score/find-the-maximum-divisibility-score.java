@@ -1,18 +1,21 @@
 class Solution {
     public int maxDivScore(int[] nums, int[] divisors) {
-        int divisibilityScore = 0, divisor = Integer.MAX_VALUE;
-        for(int i=0;i<divisors.length;i++){
-            int c = 0;
-            for(int num:nums){
-                if(num%divisors[i] == 0){
-                    c++;
-                }
+        int[] divisibilityScore = new int[divisors.length];
+        for(int num :nums){
+           for(int i=0;i<divisors.length;i++){
+            if(num%divisors[i] == 0){
+                divisibilityScore[i]++;
             }
-            if (divisibilityScore < c || (divisibilityScore == c && divisors[i] < divisor)) {
-                divisibilityScore = c;
-                divisor = divisors[i];
+           } 
+        }
+
+        int maxScore = 0, result = Integer.MAX_VALUE;
+        for(int i=0;i<divisors.length;i++){
+            if(divisibilityScore[i] > maxScore || (divisibilityScore[i] == maxScore && divisors[i] < result)){
+                maxScore = divisibilityScore[i];
+                result = divisors[i];
             }
         }
-        return divisor;
+        return result;
     }
 }
