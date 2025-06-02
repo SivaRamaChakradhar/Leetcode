@@ -15,19 +15,18 @@ class Solution {
         }
 
         ListNode dummy = new ListNode(0);
-        ListNode current = head;
 
-        while(current != null){
-            ListNode next = current.next;
+        while(head != null){
+            ListNode next = head.next;
             ListNode prev = dummy;
 
-            while(prev.next != null && prev.next.val < current.val){
+            while(prev.next != null && prev.next.val < head.val){
                 prev = prev.next;
             }
-            current.next = prev.next;
-            prev.next = current;
+            head.next = prev.next;
+            prev.next = head;
 
-            current = next;
+            head = next;
         }
         return dummy.next;
     }
