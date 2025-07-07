@@ -5,8 +5,9 @@ class Solution {
             fre.put(ch, fre.getOrDefault(ch, 0)+1);
         }
         int maxVowelCount = 0, maxConsonantCount = 0;
+        Set<Character> vowels = Set.of('a', 'e', 'i', 'o', 'u');
         for(char key: fre.keySet()){
-            if(key == 'a' || key == 'e' || key == 'i' || key == 'o' || key == 'u'){
+            if(vowels.contains(key)){
                 maxVowelCount = Math.max(maxVowelCount, fre.get(key));
             }
             else{
