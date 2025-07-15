@@ -10,11 +10,10 @@ class Solution {
         for(int i=0;i<maxFreq;i++)
             res.add(new ArrayList<>());
 
-        for(Map.Entry<Integer, Integer> entry: fre.entrySet()){
-            int num = entry.getKey();
-            int count = entry.getValue();
-            for(int i=0;i<count;i++)
-                res.get(i).add(num);
+        for(int key : fre.keySet()){
+            int val = fre.get(key);
+            for(int i=0;i<val;i++)
+                res.get(i).add(key);
         }
         return res;
     }
