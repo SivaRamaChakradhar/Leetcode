@@ -10,8 +10,6 @@ class Solution {
         for(int i=0;i<maxFreq;i++)
             res.add(new ArrayList<>());
 
-
-        System.out.println(fre.entrySet());
         for(Map.Entry<Integer, Integer> entry: fre.entrySet()){
             int num = entry.getKey();
             int count = entry.getValue();
